@@ -3,6 +3,7 @@
 ## Pacotes baixados:
     npm i react-router-dom
     npm i axios
+    npm i --save-dev @types/node        //Para conseguir usar o "process" do .env
 
 
 ## Para validar o acesso

@@ -4,6 +4,9 @@ import App from './App.tsx'
 import "./global.css"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home.tsx'
+import PrivatePage from './pages/PrivatePage.tsx'
+import { AuthProvider } from './contexts/AuthProvider.tsx'
+import { RequireAuth } from './contexts/RequireAuth.tsx'
 
 const router = createBrowserRouter([
   {
@@ -13,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />
+      },
+      {
+        path: "/private",
+        element: <RequireAuth><PrivatePage /></RequireAuth>
       }
     ]
   }
@@ -20,6 +27,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider >
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
