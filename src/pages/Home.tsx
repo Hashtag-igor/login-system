@@ -1,11 +1,23 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const HomeContainer = styled.div`
+  width: 100%;
+`
+const HomeWrapper = styled.div`
+  width: 95%;
+  margin: 20px auto;
+`
+const HomeTitle = styled.h1`
+  text-align: center;
+`
 
 export default function Home() {
   return (
-    <div style={{backgroundColor: "wheat", width: '100%', height: "100vw"}}>
-        <div style={{width: "95%", margin: "auto"}}>
-            <h1 style={{textAlign: "center"}}>Home</h1>
-        </div>
-    </div>
+    <HomeContainer>
+        <HomeWrapper>
+            <HomeTitle>Home Page</HomeTitle>
+        </HomeWrapper>
+    </HomeContainer>
   )
 }
