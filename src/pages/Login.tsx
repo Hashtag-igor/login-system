@@ -19,6 +19,16 @@ const LoginWrapper = styled.div`
     align-items: center;
     border: 3px solid #0a1618;
     border-radius: 5px;
+
+    @media screen and (max-width: 768px){
+        width: 350px;
+        height: 370px;
+    }
+
+    @media screen and (max-width: 480px){
+        width: 300px;
+        height: 320px;
+    }
 `
 const LoginTitle = styled.h2`
     text-align: center;
@@ -31,6 +41,10 @@ const LoginInput = styled.input`
     border: 1px solid #0a1618;
     border-radius: 5px;
     font-size: 14px;
+
+    @media screen and (max-width: 480px){
+        font-size: 12px;
+    }
 `
 const LoginButton = styled.button`
     padding: 12px 0;
@@ -45,6 +59,10 @@ const LoginButton = styled.button`
         background-color: #0a1618;
         cursor: pointer; 
         color: #f4eef6;
+    }
+
+    @media screen and (max-width: 480px){
+        padding: 10px 0;
     }
 `
 
