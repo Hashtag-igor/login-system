@@ -1,10 +1,15 @@
 import { useContext } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from '../contexts/AuthContext'
 
 export default function Navbar() {
-
   const auth = useContext(AuthContext)
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    await auth.signout()
+    navigate("/")
+  }
 
   return (
     <nav style={{width: "100%", backgroundColor: "black", height: "80px", display: "flex", justifyContent: "center"}}>
@@ -17,7 +22,7 @@ export default function Navbar() {
             </li>
             {auth.user && (
                 <li style={{fontSize: "22px"}}>
-                  <a href="#">Sair</a>
+                  <button onClick={handleLogout}>Sair</button>
                 </li>
             )}
         </ul>

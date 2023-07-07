@@ -32,8 +32,9 @@ export const AuthProvider = ({children}: {children: JSX.Element}) => {
     }
 
     async function signout(){
-        await api.logout()
         setUser(null)
+        sectionToken("")
+        await api.logout()
     }
 
     const sectionToken = (token: string) => {
