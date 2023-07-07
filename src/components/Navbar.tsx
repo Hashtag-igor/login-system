@@ -1,6 +1,43 @@
 import { useContext } from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from '../contexts/AuthContext'
+import styled from "styled-components"
+
+const NavbarContainer = styled.div`
+  width: 100%;
+  background-color: #0a1618;
+  border-bottom: 2px solid #000000;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+`
+const NavbarUL = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+`
+const NavbarLI = styled.li`
+  font-size: 20px;
+
+  &:hover{
+    text-decoration: underline;
+    color: #f4eef6;;
+  }
+`
+const ButtonOut = styled.button`
+  border: none;
+  background-color: transparent;
+  font-size: 19px;
+  color: #f4eef6;
+
+  &:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+`
+const NavbarLink = styled(Link)`
+`
 
 export default function Navbar() {
   const auth = useContext(AuthContext)
@@ -12,20 +49,20 @@ export default function Navbar() {
   }
 
   return (
-    <nav style={{width: "100%", backgroundColor: "black", height: "80px", display: "flex", justifyContent: "center"}}>
-        <ul style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: "90%"}}>
-            <li style={{fontSize: "22px"}}>
-                <Link to="/">Home</Link>
-            </li>
-            <li style={{fontSize: "22px"}}>
-                <Link to="/private">Private</Link>
-            </li>
+    <NavbarContainer>
+        <NavbarUL>
+            <NavbarLI>
+                <NavbarLink to="/">Home</NavbarLink>
+            </NavbarLI>
+            <NavbarLI>
+                <NavbarLink to="/private">Private</NavbarLink>
+            </NavbarLI>
             {auth.user && (
-                <li style={{fontSize: "22px"}}>
-                  <button onClick={handleLogout}>Sair</button>
-                </li>
+                <NavbarLI>
+                  <ButtonOut onClick={handleLogout}>Sair</ButtonOut>
+                </NavbarLI>
             )}
-        </ul>
-    </nav>
+        </NavbarUL>
+    </NavbarContainer>
   )
 }
